@@ -1,9 +1,10 @@
 const express = require('express')
+const path = require('path');
 const app = express()
 //rotas
 //Obs: só é possivel enviar o send uma vez
 app.get('/', function(req, res){
-    res.sendFile(__dirname + "../../Html/index.html")
+    res.sendFile(path.join(__dirname, '../../Html/index.html'));
 })
 
 app.get('/sobre', function(req, res){
