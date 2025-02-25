@@ -40,6 +40,14 @@ app.post('/add', function(req, res){
     })
 })
 
+app.get('/deletar/:id', function(req, res){
+    Post.destroy({where: {'id': req.params.id}}).then(function(){
+        res.send('Postagem deletada')
+    }).catch(function(erro){
+        res.send('esta postagem não existe')
+    })
+})
+
 app.listen(8081, function(){
     console.log('o sevidor está rodando na url localhost:8081')
 })
